@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="europacucine_view_order_form" model="ir.ui.view">
+            <field name="name">europacucine.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <group name="note_group" position="after">
+                    <group name="facturado_total" class="o_group o_inner_group oe_subtotal_footer oe_right o_group_col_4">
+                        <field name="pendiente_facturar" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="facturado" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    </group>
+                    <div class="oe_clear"/>
+                </group>
+
+            </field>
+        </record>
+
+        <record id="europacucine_view_order_tree" model="ir.ui.view">
+            <field name="name">.europacucine.sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="amount_total" position="after">
+                    <field name="pendiente_facturar"/>
+                    <field name="facturado"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>
