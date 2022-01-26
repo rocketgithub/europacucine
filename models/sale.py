@@ -6,15 +6,17 @@ import logging
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    @api.depends('invoice_ids')
+    @api.depends('invoice_ids.state')
     def _obtener_facturado(self):
         for pedido in self:
             facturado = pendiente_facturar =  0.0
             if pedido.invoice_ids:
+                pendiente_facturar = pedido.amount_total
                 for factura in pedido.invoice_ids:
-                    facturado += factura.amount_total
+                    if factura.state == 'posted':
+                        facturado += factura.amount_total
 
-                pendiente_facturar = pedido.amount_total - facturado
+                pendiente_facturar -= facturado
 
             pedido.update({
                 'facturado': facturado,
