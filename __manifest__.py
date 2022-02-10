@@ -14,9 +14,10 @@
     'category': 'Uncategorized',
     'version': '0.1',
 
-    'depends': ['sale'],
+    'depends': ['sale','account','fel_gt'],
 
     'data': [
         'views/sale_views.xml',
+        'views/account_move_views.xml',
     ],
 }
