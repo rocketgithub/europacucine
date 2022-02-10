@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+      <record id="europacucine_view_out_invoice_tree" model="ir.ui.view">
+          <field name="name">europacucine.account.out.invoice.tree</field>
+          <field name="model">account.move</field>
+          <field name="inherit_id" ref="account.view_out_invoice_tree"/>
+          <field name="arch" type="xml">
+              <field name="name" position="after">
+                  <field name="numero_fel"/>
+              </field>
+          </field>
+      </record>
+
+    </data>
+</odoo>
