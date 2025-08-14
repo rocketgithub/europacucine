@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="productos_showroom">
+        <t t-call="web.html_container">
+            <t t-set="data_report_margin_top" t-value="20"/>
+            <t t-set="data_report_header_spacing" t-value="10"/>
+            <div class="header">
+            </div>
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 style="text-align: center;">Reporte de productos showroom</h2>
+                    <b>Fecha del reporte:</b> <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')" t-options="{'widget': 'date'}"/>
+                    <t t-foreach="lineas.keys()" t-as="categoria">
+                        <h3><t t-esc="categoria"/></h3>
+                        <table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Codigo producto</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Nombre producto</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Existencia actual</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Valor mínimo producto</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Cantidades pedidas</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Imagen</td>
+                            </tr>
+                            <tr t-foreach="lineas[categoria]" t-as="linea">
+                                <td style="border: 1px solid #ddd; padding: 6px;"><span t-esc="linea['product_id'].default_code"/></td>
+                                <td style="border: 1px solid #ddd; padding: 6px;"><span t-esc="linea['product_id'].name"/></td>
+                                <td style="border: 1px solid #ddd; padding: 6px; text-align: center;"><span t-esc="linea['product_id'].qty_available"/></td>
+                                <td style="border: 1px solid #ddd; padding: 6px; text-align: center;"><span t-esc="linea['valor_minimo']"/></td>
+                                <td style="border: 1px solid #ddd; padding: 6px; text-align: center;"><span t-esc="linea['cantidad_pedida']"/></td>
+                                <td style="border: 1px solid #ddd; padding: 6px; text-align: center;">
+                                            <img t-if="linea['product_id'].image_128" t-att-src="image_data_uri(linea['product_id'].image_128)"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+europacucine_extra_asistente_productos_minimos,europacucine.asistente_productos_minimos,model_europacucine_asistente_productos_minimos,account.group_account_manager,1,1,1,1
+europacucine_extra_asistente_productos_showroom,europacucine.asistente_productos_showroom,model_europacucine_asistente_productos_showroom,account.group_account_manager,1,1,1,1
