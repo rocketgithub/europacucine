@@ -8,7 +8,7 @@
             </div>
             <t t-call="web.external_layout">
                 <div class="page">
-                    <h2 style="text-align: center;">Reporte de productos mínimos</h2>
+                    <h2 style="text-align: center;">Reporte de inventarios con mínimos</h2>
                     <b>Fecha del reporte:</b> <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')" t-options="{'widget': 'date'}"/>
                     <t t-foreach="lineas.keys()" t-as="categoria">
                         <h3><t t-esc="categoria"/></h3>
@@ -17,7 +17,7 @@
                                 <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Codigo producto</td>
                                 <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Nombre producto</td>
                                 <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Existencia actual</td>
-                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Valor mínimo producto</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Existencia mínima</td>
                                 <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Cantidades pedidas</td>
                             </tr>
                             <tr t-foreach="lineas[categoria]" t-as="linea">

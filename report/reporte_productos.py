@@ -16,7 +16,6 @@ class ReporteAbstractProductos(models.AbstractModel):
     def preparar_valores_diccionario(self, producto, showroom):
         product_id = producto.product_variant_id.id
         lineas_po = self.env['purchase.order.line'].search([('product_id', '=', product_id), ('order_id.state', 'in', ['purchase', 'done'])])
-
         cantidad_pedida = 0.0
         for linea in lineas_po:
             pendiente = linea.product_qty - linea.qty_received
@@ -43,7 +42,6 @@ class ReporteAbstractProductos(models.AbstractModel):
     def lineas(self, showroom=False):
         lineas = {}
         productos = self.obtener_productos(showroom)
-
         for producto in productos:
             cadena_categoria = self.obtener_cadena_categorias(producto.categ_id)
             dict_producto = self.preparar_valores_diccionario(producto, showroom)

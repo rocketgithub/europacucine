@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="mail_template_productos_minimos" model="mail.template">
+        <field name="name">Reporte Productos Mínimos</field>
+        <field name="model_id" ref="stock.model_stock_warehouse"/>
+        <field name="subject">Reporte de productos mínimos</field>
+        <field name="body_html"><![CDATA[
+            <p>Buen día,</p>
+            <p>Adjunto el reporte de productos mínimos del almacén ${object.name}.</p>
+        ]]></field>
+    </record>
+
+    <record id="mail_template_productos_showroom" model="mail.template">
+        <field name="name">Reporte Productos Showroom</field>
+        <field name="model_id" ref="stock.model_stock_warehouse"/>
+        <field name="subject">Reporte de productos showroom</field>
+        <field name="body_html"><![CDATA[
+            <p>Buen día,</p>
+            <p>Adjunto el reporte de productos showroom del almacén ${object.name}.</p>
+        ]]></field>
+    </record>
+</odoo>

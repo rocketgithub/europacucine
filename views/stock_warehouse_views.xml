@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="europacucine_view_warehouse" model="ir.ui.view">
+        <field name="name">europacucine.stock.warehouse</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="after">
+                <button name="enviar_reportes_productos" type="object" string="Enviar reportes"/>
+                <group string="Contactos a quienes se les enviará reporte por correo">
+                    <group>
+                        <field name="reporte_productos_minimos" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="reporte_productos_showroom" widget="many2many_tags"/>
+                    </group>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
