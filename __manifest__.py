@@ -12,7 +12,7 @@
     'website': "http://www.aquih.com",
 
     'category': 'Uncategorized',
-    'version': '0.2',
+    'version': '0.3',
 
     'depends': ['sale', 'purchase', 'stock', 'account', 'fel_gt', 'account_reports'],
 
@@ -21,9 +21,10 @@
         'views/reporte_productos_minimos.xml',
         'views/reporte_productos_showroom.xml',
         'views/product_template_views.xml',
+        'views/report.xml',
         'views/sale_views.xml',
-        'wizard/asistente_productos_minimos_views.xml',
-        'wizard/asistente_productos_showroom_views.xml',
-        'security/ir.model.access.csv',
+        'views/stock_warehouse_views.xml',
+        'data/email_templates.xml',
+        'data/cron_enviar_reportes.xml',
     ],
 }
